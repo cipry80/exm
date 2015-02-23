@@ -1,6 +1,7 @@
 <?php
 require_once 'config/db.php';
-include 'db_data.php';?>
+require_once 'db_data.php';
+?>
 <html> 
     <head> 
         
@@ -20,23 +21,35 @@ include 'db_data.php';?>
                             <td>Descriere</td>
                         </tr>
                     </thead>
+                    <tbody>
 
-                    <?php 
+                    <?php
+
+                    $count = 0;
                     foreach ($array_db as $id => $row) {
-                        echo '<tbody>';
+                        $names[] = $row['nume'];
+                        $urls[] = $row['url'];
+                        $count++;
+                    }
+                    shuffle($names);
+                    shuffle($urls);
+
+                    for($i= 0; $i < $count; $i++){
                         echo '<tr>';
                         echo '<td class="name">';
-                        echo  $row['url'];
+                        echo  $urls[$i];
                         echo '</td>';
                         echo '<td class="description">';
-                        echo  $row['nume'];
+                        echo  $names[$i];
                         echo '</td>';
                         echo '</tr>';
-                        echo '</tbody>';
-                    }?>
+                    }
+                    ?>
+
+                    </tbody>
                 </table>
             
-            <table class="table table-bordered pull-left" >
+            <table class="table table-bordered pull-left" id="dreapta">
                     <caption>RESULT</caption>
                     <thead>
                         <tr>
@@ -44,26 +57,7 @@ include 'db_data.php';?>
                             <td>Descriere</td>
                         </tr>
                     </thead>
-                    <tbody id = "dreapta" >
-                        <script>
-                            $.ajax({
-                            dataType: 'json',
-                            url: 'http://www.ciprian.dev/db_data.php',
-                            succes: function(data){
-                                
-                                $.each(data, function(i, val){
-                                   var tableDreapta = 
-                                    "<tbody>"+                       
-                                    +"<tr>"+
-                                    +"<td>"+val.nume+"</td>"+
-                                     +"<td>"+val.url+"</td>"+
-                                     +"</tr>"+
-                                      +"</tbody>";
-                                $(tableDreapta).appendTo("#dreapta");
-                                }); 
-                            }
-                    });
-                        </script>
+                    <tbody>
                     </tbody>
             </table>
             </div>
