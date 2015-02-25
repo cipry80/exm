@@ -1,5 +1,6 @@
 <?php
 require_once 'config/db.php';
+include 'db_data.php';
 <html>
     <head> 
     </head>
