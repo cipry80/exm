@@ -1,0 +1,22 @@
+
+.table{
+padding:15px;
+width: 50%;
+}
+
+#stanga > tbody > tr:nth-child(1) > td:nth-child(1){
+width: 10%;
+}
+td{
+text-align: center;
+}
+
+.red-cell{
+	background: red;
+}
+caption{
+   text-align: center; 
+}
+h2{
+   text-align: left; 
+}
