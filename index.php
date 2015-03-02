@@ -10,7 +10,7 @@ include 'db_data.php';?>
     <body>
         <div class="container">
             <h2>Table1</h2> 
-            <div class="table-responsive" id = "main"> 
+            <div class="table-responsive " id = "main"> 
                 <table class="table table-bordered" id="stanga">
                     <caption>Let's play!</caption>
                     <thead>
@@ -24,10 +24,10 @@ include 'db_data.php';?>
                     foreach ($array_db as $id => $row) {
                         echo '<tbody>';
                         echo '<tr>';
-                        echo '<td>';
+                        echo '<td class="name">';
                         echo  $row['url'];
                         echo '</td>';
-                        echo '<td>';
+                        echo '<td class="description">';
                         echo  $row['nume'];
                         echo '</td>';
                         echo '</tr>';
@@ -35,7 +35,18 @@ include 'db_data.php';?>
                     }?>
                 </table>
             
-            <table id="dreapta"></table>
+            <table class="table table-bordered pull-left" >
+                    <caption>RESULT</caption>
+                    <thead>
+                        <tr>
+                            <td>url</td>
+                            <td>Descriere</td>
+                        </tr>
+                    </thead>
+                    <tbody id = "dreapta" >
+                        
+                    </tbody>
+            </table>
             </div>
         </div>
         <script src="public/js/jquery-1.11.2.min.js"></script>

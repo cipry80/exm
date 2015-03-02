@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+
+/* global variables */
+var hour = 0;
+var minute= 0;
+var second = 0;
+
+
+/* function declaration */
+function checktimedispatcher() {
+
+
+/* update the running timers */
+    second = second + 1;
+    document.getElementById("secondelement").innerHTML= second;
+    if ( (second%60) == 0) {
+      minute = minute + 1;
+      document.getElementById("minuteelement").innerHTML= minute;
+      if ( (minute%60) == 0) {
+        hour = hour + 1;
+        document.getElementById("hourelement").innerHTML= hour;
+      } 
+    } 
+} 
+
+//-->
+</script>
+<body onload="intervalhandle=window.setInterval(function() {checktimedispatcher() },10);">
+<div >
+<p align="center">TIME: <span id="timerelement">starting</span>
+<br>HOURS: <span id="hourelement">0</span>
+<br>MINUTES: <span id="minuteelement">0</span>
+<br>SECONDS: <span id="secondelement">0</span>
+</p></div>
+</html>
