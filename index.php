@@ -4,8 +4,9 @@ include 'db_data.php';?>
 <html> 
     <head> 
         
-	 <link rel="stylesheet" href="public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/css/bootstrap.min.css">
 	<link href="public/css/style.css" rel="stylesheet">
+        <script src="public/js/jquery-1.11.2.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -44,12 +45,30 @@ include 'db_data.php';?>
                         </tr>
                     </thead>
                     <tbody id = "dreapta" >
-                        
+                        <script>
+                            $.ajax({
+                            dataType: 'json',
+                            url: 'http://www.ciprian.dev/db_data.php',
+                            succes: function(data){
+                                
+                                $.each(data, function(i, val){
+                                   var tableDreapta = 
+                                    "<tbody>"+                       
+                                    +"<tr>"+
+                                    +"<td>"+val.nume+"</td>"+
+                                     +"<td>"+val.url+"</td>"+
+                                     +"</tr>"+
+                                      +"</tbody>";
+                                $(tableDreapta).appendTo("#dreapta");
+                                }); 
+                            }
+                    });
+                        </script>
                     </tbody>
             </table>
             </div>
         </div>
-        <script src="public/js/jquery-1.11.2.min.js"></script>
+        
 	<script src="public/js/main.js"></script>
     </body>
 </html>

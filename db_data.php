@@ -1,4 +1,5 @@
 <?php
+
 $array_db = array (
     1 => array("nume" => "I see in two?", "url" => "www.ciprian.dev/public/images/poza1.jpg"),
     2 => array("nume" => "You can call me sir!!!! ", "url" => "www.ciprian.dev/public/images/poza2.jpg"),
@@ -11,4 +12,4 @@ $array_db = array (
     9 => array("nume" => "I will sunk.", "url" => "www.ciprian.dev/public/images/poza9.jpg"),
     10 => array("nume" => "Reduce fat.", "url" => "www.ciprian.dev/public/images/poza10.jpg")
 );
-
+echo json_encode($array_db);
