@@ -1,15 +1,17 @@
 $( function() {
-  $('td').click( function(){
+    $.getJSON('http://www.ciprian.dev/arrayEchoData.php', function(data){
+        $.each(data, function(key, val){
+            $('#stanga').append('<tr>' + '<td>'+ val.nume + '</td>' + '<td>'+ val.url + '</td>');
+        });
+        $('td').click( function(){
 	$(this).toggleClass('red-cell');
-           /*var click = $(this).closest('td').html();*/
             var clickUrl = $(this).hasClass( 'name' );
-                console.log(clickUrl);
-                var clickDescriere = $(this).hasClass( 'description' ).toString();
-                console.log(clickDescriere);
-            if( clickUrl === true){ 
-                 if (clickDescriere === true){  
-                     $('#dreapta').append('<tr><td>clickUrl</td><td>clickDescriere</td></tr>');
-                };
-            };  
-  });
+            console.log(clickUrl);
+            var clickDescriere = $(this).hasClass( 'description' );
+            console.log(clickDescriere);
+           
+        });
+    });
+  
 });
+  
